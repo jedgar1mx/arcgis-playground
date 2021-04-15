@@ -5,8 +5,9 @@ import Basemap from "@arcgis/core/Basemap";
 import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
 import TileLayer from  "@arcgis/core/layers/TileLayer";
 import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
+import key from '../local/key.json';
 
-esriConfig.apiKey = "AAPKc92e0268cb7d41cab948f1c2eb4e2c72WiY9z-m7D_E2R5ODmzU7BNVmqXQTkNTJyEq0ovAmnU380kZIMEgOz-zKSIbwM1Mn";
+esriConfig.apiKey = key.key;
 
 const parcelRender = {
   type: "simple",

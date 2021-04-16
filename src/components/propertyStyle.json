@@ -1,0 +1,51 @@
+{
+  "version": 8,
+  "sprite": "https://cdn.arcgis.com/sharing/rest/content/items/273bf8d5c8ac400183fc24e109d20bcf/resources/styles/../sprites/sprite",
+  "glyphs": "https://basemaps.arcgis.com/arcgis/rest/services/World_Basemap_v2/VectorTileServer/resources/fonts/{fontstack}/{range}.pbf",
+  "sources": {
+    "public-properties": {
+      "type": "vector",
+      "tiles": [
+        "https://tiles.arcgis.com/tiles/qvkbeam7Wirps6zC/arcgis/rest/services/development_map_layers/VectorTileServer/tile/{z}/{y}/{x}.pbf"
+      ]
+    }
+  },
+  "layers": [
+    {
+      "id": "city-structures",
+      "type": "fill",
+      "source": "public-properties",
+      "source-layer": "city_surplus_buildings",
+      "layout": { "visibility": "none" },
+      "paint": { "fill-color": "#009980", "fill-opacity": 0.7 }
+    },
+    {
+      "id": "city-land",
+      "type": "fill",
+      "source": "public-properties",
+      "source-layer": "city_surplus_land",
+      "layout": { "visibility": "none" },
+      "paint": { "fill-color": "#00f8cf", "fill-opacity": 0.7 }
+    },
+    {
+      "id": "dlba-structures",
+      "type": "fill",
+      "source": "public-properties",
+      "source-layer": "dlba_structures",
+      "layout": { "visibility": "none" },
+      "paint": { "fill-color": "#009980", "fill-opacity": 0.7 }
+    },
+    {
+      "id": "dlba-land",
+      "type": "fill",
+      "source": "public-properties",
+      "source-layer": "dlba_land",
+      "layout": { "visibility": "none" },
+      "paint": { "fill-color": "#00f8cf", "fill-opacity": 0.7 }
+    }
+  ],
+  "metadata": {
+    "arcgisStyleUrl": "https://www.arcgis.com/sharing/rest/content/items/273bf8d5c8ac400183fc24e109d20bcf/resources/styles/root.json",
+    "arcgisOriginalItemTitle": "Community"
+  }
+}

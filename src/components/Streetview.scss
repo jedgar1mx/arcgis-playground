@@ -1,0 +1,62 @@
+@import 'colors.scss';
+#streetview{
+    display: flex;
+    flex-wrap: wrap;
+    height: 18em;
+    width: 100%;
+    margin-bottom: 1em;
+
+    .streetview-header{
+        width: 100%;
+        display: flex;
+        background-color: $color-1;
+        color: $white;
+        height: 2.25em;
+        padding: .3em .5em;
+
+        .streetview-title{
+            flex: 1;
+        }
+
+        .streetview-date{
+            label{
+                margin-right: .25em;
+            }
+            select{
+                color: $color-1;
+                width: 9em;
+            }
+        }
+    }
+
+    .streetview-imagery{
+        width: 100%;
+        background-color: $black;
+        height: calc(100% - 2em);
+
+        .streetview-loader.active{
+            color: $white;
+            width: 100%;
+            height: 100%;
+            display: flex;
+
+            article{
+                margin: auto;
+            }
+
+            p{
+                position: relative;
+                left: .5em;
+            }
+        }
+
+        .streetview-loader{
+            display: none;
+        }
+
+        #mly{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

@@ -4,22 +4,55 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>ArcGIS API for JavaScript Tutorials: Display a map</title>
     <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css">
-    <style>
-      html,
-      body,
-      #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-      }
-    </style>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+</head>
   </head>
   <body>
-    <section id="app">
-      <div id="panel"></div>
-      <div id="viewDiv"></div>
+    <style>body{margin: 0; padding: 0;}</style>
+  <section id="app">
+    <section id="welcome-panel" class="active">
+      <article class="welcome-panel-container">
+        <div class="">
+          <article>
+            <h2>WELCOME TO THE CITY OF DETROIT PROPERTY SEARCH MAP</h2>
+            <p>Navigate the map to search for property information across Detroit. Key features to explore:</p>
+            <ul>
+                <li>Look up a specific address in the <i class="fas fa-map-marker-alt"></i> Find Property search bar</li>
+                <li>Select search criteria with <i class="fas fa-layer-group"></i> Data Layers to explore opportunities</li>
+                <li>Click on a parcel to display property information</li>
+                <li>Apply to purchase publicly owned property by clicking on the “Inquire to buy this Property” button in the parcel information feature</li>
+                <li>Click the <i class="fas fa-info-circle"></i> Info icon to see more detail about the property layers</li>
+            </ul>
+            <article>
+              <button id="close-welcome">START</button>
+            </article>
+          </article>
+        </div>
+      </article>
     </section>
+    <section id="initial-loader-overlay" class="">
+      <article>
+        <div>
+          <div class="loader">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+          </div>
+          <p>LOADING</p>
+        </div>
+      </article>
+    </section>
+    <article id="geocoder"></article>
+    <article class="panel">
+      <div class="panel-box"></div>
+    </article>
+    <article id="user-controls"></article>
+    <article id="map"></article>
+  </section>
+  
+  <script src="index.js"></script>
   </body>
 </html>

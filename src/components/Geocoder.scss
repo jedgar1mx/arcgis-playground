@@ -1,0 +1,31 @@
+#geocoder{
+    position: absolute;
+    top: .55em;
+    right: 3em;
+    z-index: 1001;
+
+    form{
+        position: relative;
+
+        input{
+            width: 16em;
+            padding: 1.25em .5em .5em .5em;
+            border: none;
+            color: #000;
+        }
+
+        label{
+            position: absolute;
+            top: .1em;
+            left: 2em;
+            font-size: .8em;
+            font-weight: bold;
+        }
+
+        i{
+            position: absolute;
+            top: .1em;
+            left: .5em;
+        }
+    }
+}

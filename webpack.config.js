@@ -8,7 +8,7 @@ const ArcGISPlugin = require('@arcgis/webpack-plugin');
 
 module.exports = {
   entry: {
-    index: ['./src/css/index.css', './src/index.js']
+    index: ['./src/index.js']
   },
   node: false,
   output: {
@@ -29,11 +29,8 @@ module.exports = {
         use: ["source-map-loader"],
       },
       {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader'
-        ]
+        test: /\.(scss|css)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ]
   },

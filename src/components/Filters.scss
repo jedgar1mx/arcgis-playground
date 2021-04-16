@@ -1,0 +1,271 @@
+@import './colors.scss';
+#filter-box{
+    left: 0;
+    transition: all .2s ease-in-out;
+    
+    .filter-btn{
+        width: auto;
+        padding: .7em 1.1em;
+        border-radius: 50%;
+        background: $color-4;
+        color: $white;
+        cursor: pointer;
+        visibility: hidden;
+    }
+
+    .filter-btn.active{
+        visibility: visible;
+        border: none;
+    }
+
+    button{
+        cursor: pointer;
+    }
+
+    button[type="expand"]{
+        padding: .5em;
+        margin-left: .5em;
+    }
+
+    .parent-filter-container{
+        padding: .5em;
+        background-color: $color-1;
+        color: $white;
+        border-bottom: .1em solid $white;
+
+        label{
+            cursor: pointer;
+        }
+    }
+
+    .filter-subset{
+        height: 0;
+        display: none;
+        transition: all .2s ease-in-out;
+        background-color: $white;
+        padding: 1em;
+
+        label {
+            cursor: pointer;
+            
+            span.line{
+                width: 1em; 
+                margin-left: .25em;
+                padding: 0 1em;
+                position: relative;
+                top: -.65em;
+                border-bottom: .2em solid;
+            }
+
+            span.circle{
+                width: 1em;
+                margin-left: 0.25em;
+                padding: 0 0.55em;
+                border-radius: 50%;
+            }
+
+            span.square{
+                width: 1em;
+                margin-left: 0.25em;
+                padding: 0 0.55em;
+                border: .1em solid;
+            }
+
+            span.smart-bus{
+                border-color: #eb7609;
+            }
+
+            span.qline{
+                border-color: #7fb6ab;
+            }
+
+            span.p-mover{
+                border-color: #2c5490;
+            }
+
+            span.mogo{
+                background-color: #ee382a;
+            }
+
+            span.fire{
+                background-color: #8f0408;
+            }
+
+            span.police{
+                background-color: #00158b;
+            }
+
+            span.parks{
+                border-color: #28f572;
+                background-color: lighten(#28f572,30%);
+            }
+
+            span.marijuana-land{
+                background-color: #002e00;
+            }
+
+            span.marijuana-structure{
+                background-color: #028302;
+            }
+
+            span.opp-zones{
+                border-color: #83027d;
+                background-color: lighten(#83027d,30%);
+            }
+
+            span.snf{
+                border-color: #804d24;
+                background-color: lighten(#804d24,30%);
+            }
+
+            span.tmah{
+                border-color: #0060dd;
+                background-color: lighten(#0060dd,30%);
+            }
+
+            span.R1{
+                border-color: #FCF3CF;
+            }
+
+            span.R2{
+                border-color: #F9E79F;
+            }
+
+            span.R3{
+                border-color: #F4D03F;
+            }
+
+            span.R4{
+                border-color: #F1C40F;
+            }
+
+            span.R5{
+                border-color: #D4AC0D;
+            }
+
+            span.R6{
+                border-color: #B7950B;
+            }
+
+            span.B1{
+                border-color: #F1948A;
+            }
+
+            span.B2{
+                border-color: #EC7063;
+            }
+
+            span.B3{
+                border-color: #E74C3C;
+            }
+
+            span.B4{
+                border-color: #A93226;
+            }
+
+            span.B5{
+                border-color: #922B21;
+            }
+
+            span.B6{
+                border-color: #7B241C;
+            }
+
+            span.M1{
+                border-color: #EBDEF0;
+            }
+
+            span.M2{
+                border-color: #C39BD3;
+            }
+
+            span.M3{
+                border-color: #9B59B6;
+            }
+
+            span.M4{
+                border-color: #7D3C98;
+            }
+
+            span.M5{
+                border-color: #4A235A;
+            }
+
+            span.P1{
+                border-color: #CCD1D1;
+            }
+
+            span.PC{
+                border-color: #884EA0;
+            }
+
+            span.PCA{
+                border-color: #2471A3;
+            }
+
+            span.PD{
+                border-color: #3498DB;
+            }
+
+            span.PR{
+                border-color: #1E8449;
+            }
+
+            span.SD1{
+                border-color: #D4E6F1;
+            }
+
+            span.SD2{
+                border-color: #7FB3D5;
+            }
+
+            span.SD3{
+                border-color: #D7BDE2;
+            }
+
+            span.SD4{
+                border-color: #45B39D;
+            }
+
+            span.SD5{
+                border-color: #ff8f00;
+            }
+
+            span.TM{
+                border-color: #A2D9CE;
+            }
+
+            span.W5{
+                border-color: #82E0AA;
+            }
+
+            span.public-structure{
+                border-color: #009980;
+                background-color: #009980;
+            }
+
+            span.public-land{
+                border-color: #00f8cf;
+                background-color: lighten(#00f8cf,30%);
+            }
+        }
+    }
+
+    .filter-subset.active{
+        height: auto;
+        display: block;
+        transition: all .2s ease-in-out;
+    }
+}
+@media all and (min-width: 401px) {
+
+	button{
+		border: none;
+		background-color: $color-2;
+		padding: 1em;
+		font-weight: bold;
+		color: $color-1;
+		cursor: pointer;
+		transition: all .2s ease-in-out;
+	}
+}

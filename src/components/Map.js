@@ -93,26 +93,6 @@ export default class Maps {
         }
       });
 
-      _map.search = new Search({  //Add Search widget
-        view: _map.view,
-        popupEnabled: false,
-        label: "Find property",
-        sources: [
-          {
-            locator: new Locator({ url: "https://gis.detroitmi.gov/arcgis/rest/services/DoIT/CompositeGeocoder/GeocodeServer/" }),
-            singleLineFieldName: "SingleLine",
-            name: "Custom Geocoding Service",
-            placeholder: "Search Geocoder",
-            maxResults: 3,
-            maxSuggestions: 6,
-            suggestionsEnabled: false,
-            minSuggestCharacters: 0
-          }
-        ]
-      });
-
-      _map.view.ui.add(_map.search, "top-right");
-      
       const popupParcel = {
         title: "Parcel",
         content: "<strong>ID:{parcel_number}</strong>"
@@ -125,6 +105,39 @@ export default class Maps {
         // popupTemplate: popupParcel,
         // definitionExpression: "parcel_number = '10001000-3'",
         minZoom: 7000
+      });
+
+      _map.search = new Search({  //Add Search widget
+        view: _map.view,
+        popupEnabled: false,
+        allPlaceholder: "District or Senator",
+        includeDefaultSources: false,
+        sources: [
+          {
+            layer: parcelLayer,
+            searchFields: ["parcel_number"],
+            displayField: "parcel_number",
+            exactMatch: false,
+            outFields: ["address", "parcel_number"],
+            name: "Parcel",
+            placeholder: "example: 1301 third"
+          },
+          {
+            name: "Detroit Geocoding Service",
+            placeholder: "example: Nuuk, GRL",
+            singleLineFieldName: "SingleLine",
+            locator: new Locator({
+              url: "https://gis.detroitmi.gov/arcgis/rest/services/DoIT/CompositeGeocoder/GeocodeServer",
+              outFields: ["parcel_number"]
+            })
+          }
+        ]
+      });
+
+      _map.view.ui.add(_map.search, "top-right");
+
+      _map.search.on("select-result", function(event){
+        console.log("The selected search result: ", event);
       });
       
       _map.layers['selectedParcel'] = new FeatureLayer({

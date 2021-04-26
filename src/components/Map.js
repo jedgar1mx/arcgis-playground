@@ -3,8 +3,9 @@ import MapView from '@arcgis/core/views/MapView';
 import esriConfig from '@arcgis/core/config';
 import Basemap from "@arcgis/core/Basemap";
 import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
-import TileLayer from  "@arcgis/core/layers/TileLayer";
+import Search from  "@arcgis/core/widgets/Search";
 import FeatureLayer from '@arcgis/core/layers/FeatureLayer';
+import Locator from '@arcgis/core/tasks/Locator';
 import key from '../../local/key.json';
 import './Map.scss';
 
@@ -19,6 +20,7 @@ export default class Maps {
         this.svBearing = 180;
         this.map = null;
         this.view = null;
+        this.search = null;
         this.layers = [];
         this.mainLayer = null;
         this.init(this);
@@ -90,6 +92,26 @@ export default class Maps {
           color: "#004445"
         }
       });
+
+      _map.search = new Search({  //Add Search widget
+        view: _map.view,
+        popupEnabled: false,
+        label: "Find property",
+        sources: [
+          {
+            locator: new Locator({ url: "https://gis.detroitmi.gov/arcgis/rest/services/DoIT/CompositeGeocoder/GeocodeServer/" }),
+            singleLineFieldName: "SingleLine",
+            name: "Custom Geocoding Service",
+            placeholder: "Search Geocoder",
+            maxResults: 3,
+            maxSuggestions: 6,
+            suggestionsEnabled: false,
+            minSuggestCharacters: 0
+          }
+        ]
+      });
+
+      _map.view.ui.add(_map.search, "top-right");
       
       const popupParcel = {
         title: "Parcel",

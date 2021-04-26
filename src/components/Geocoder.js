@@ -89,18 +89,15 @@ export default class Geocoder {
                                 }
                             });
                             (parcel == null) ? location = data.candidates[0].location : location = null;
+                            console.log(parcel.location);
                             geocoder._controller.coords = [parcel.location.x, parcel.location.y];
                             geocoder._controller.parcel = parcel.attributes.User_fld;
                             geocoder._controller.map.layers['selectedParcel'].definitionExpression = `parcel_number = '${parcel.attributes.User_fld}'`;
+                            console.log(geocoder._controller.map);
                             geocoder._controller.map.view.goTo({
                                 center: [parcel.location.x,parcel.location.y],
                                 zoom: 17,
-                            })
-                            .catch(function(error) {
-                                if (error.name != "AbortError") {
-                                    console.error(error);
-                                }
-                            });
+                            }).then(()=>{console.log('done')});
                             geocoder._controller.checkSpecialProperties(parcel.attributes.User_fld, geocoder._controller);
                             geocoder.form.childNodes[1].value = '';
                             document.getElementById('initial-loader-overlay').className = 'active';

@@ -31,9 +31,9 @@ export default class App {
     }
 
     initialLoad(_app){
-        if(_app.geocoder == null){
-          _app.geocoder = new Geocoder('geocoder', _app);
-        }
+        // if(_app.geocoder == null){
+        //   _app.geocoder = new Geocoder('geocoder', _app);
+        // }
         _app.getCityData(_app);
         document.getElementById('close-welcome').addEventListener('click', ()=>{
             document.getElementById('welcome-panel').className = '';

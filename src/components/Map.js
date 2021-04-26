@@ -114,21 +114,12 @@ export default class Maps {
         includeDefaultSources: false,
         sources: [
           {
-            layer: parcelLayer,
-            searchFields: ["parcel_number"],
-            displayField: "parcel_number",
-            exactMatch: false,
-            outFields: ["address", "parcel_number"],
-            name: "Parcel",
-            placeholder: "example: 1301 third"
-          },
-          {
             name: "Detroit Geocoding Service",
-            placeholder: "example: Nuuk, GRL",
+            placeholder: "Ex: 1301 third",
             singleLineFieldName: "SingleLine",
             locator: new Locator({
               url: "https://gis.detroitmi.gov/arcgis/rest/services/DoIT/CompositeGeocoder/GeocodeServer",
-              outFields: ["parcel_number"]
+              outFields: "parcel_number"
             })
           }
         ]
@@ -136,8 +127,9 @@ export default class Maps {
 
       _map.view.ui.add(_map.search, "top-right");
 
-      _map.search.on("select-result", function(event){
-        console.log("The selected search result: ", event);
+      _map.search.on("search-complete", function(event){
+        // The results are stored in the event Object[]
+        console.log("Results of the search: ", event);
       });
       
       _map.layers['selectedParcel'] = new FeatureLayer({
